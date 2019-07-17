@@ -7,7 +7,6 @@
 #include <ctime>
 #include <unistd.h>
 
-
 using namespace std;
 
 #define MAX 1000
