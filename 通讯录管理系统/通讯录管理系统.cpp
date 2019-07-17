@@ -7,6 +7,8 @@
 #include <ctime>
 using namespace std;
 
+#define MAX 1000
+
 struct Person{
     string m_Name;
     int m_Sex;
@@ -16,7 +18,8 @@ struct Person{
 };
 
 struct Addressbooks{
-
+    struct Person personArray[MAX];
+    int m_Size;
 };
 
 void showMenu(){
