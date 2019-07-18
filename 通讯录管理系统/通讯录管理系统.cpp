@@ -112,8 +112,8 @@ void showPerson(Addressbooks * abs){
             cout << "电话： " << abs->personArray[i].m_Phone<< "\t";
             cout << "住址： " << abs->personArray[i].m_Addr << endl;
         }
-        clearscreen();
     }
+    clearscreen();
 }
 
 void deletePerson(Addressbooks * abs){
