@@ -154,11 +154,11 @@ void findPerson(Addressbooks * abs){
 
 void modifyPerson(Addressbooks * abs){
     cout << "请输入要修改的联系人：" << endl;
+    string name;
+    cin >> name;
 
     int ret = isExist(abs, name);
     if (ret != -1){
-        string name;
-        cin >> name;
 
         cout << "请输入姓名： " << endl;
         cin >> name;
