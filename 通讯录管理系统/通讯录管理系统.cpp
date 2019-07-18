@@ -35,6 +35,14 @@ int isExist(Addressbooks * abs, string name){
     }
 }
 
+void clearscreen(){
+    string temp;
+    printf("按任意键继续\n");
+    cin >> temp;
+//        sleep(5);
+    system("clear");
+}
+
 void showMenu(){
     cout << "*************************" <<endl;
     cout << "*****  1、添加联系人  *****" <<endl;
@@ -89,11 +97,7 @@ void addPerson(Addressbooks * abs){
         abs->m_Size++;
         cout << "添加成功" << endl;
 
-        string temp;
-        printf("按任意键继续\n");
-        cin >> temp;
-//        sleep(5);
-        system("clear");
+       clearscreen();
     }
 }
 
@@ -107,13 +111,8 @@ void showPerson(Addressbooks * abs){
             cout << "年龄： " << abs->personArray[i].m_Age  << "\t";
             cout << "电话： " << abs->personArray[i].m_Phone<< "\t";
             cout << "住址： " << abs->personArray[i].m_Addr << endl;
-
-            string temp;
-            printf("按任意键继续\n");
-            cin >> temp;
-            system("clear");
-            
         }
+        clearscreen();
     }
 }
 
@@ -132,12 +131,81 @@ void deletePerson(Addressbooks * abs){
      }else{
          cout << "查无此人" << endl;
      }
+     clearscreen();
+}
 
-    string temp;
-    printf("按任意键继续\n");
-    cin >> temp;
-//        sleep(5);
-    system("clear");
+void findPerson(Addressbooks * abs){
+    cout << "请输入要查找的联系人：" << endl;
+    string name;
+    cin >>name;
+
+    int ret = isExist(abs, name);
+    if (ret != -1){
+        cout << "姓名： " << abs->personArray[ret].m_Name << "\t";
+        cout << "性别： " << (abs->personArray[ret].m_Sex == 1 ?"男":"女")  << "\t";
+        cout << "年龄： " << abs->personArray[ret].m_Age  << "\t";
+        cout << "电话： " << abs->personArray[ret].m_Phone<< "\t";
+        cout << "住址： " << abs->personArray[ret].m_Addr << endl;
+    } else{
+        cout << "查无此人！" << endl;
+    }
+    clearscreen();
+}
+
+void modifyPerson(Addressbooks * abs){
+    cout << "请输入要修改的联系人：" << endl;
+
+    int ret = isExist(abs, name);
+    if (ret != -1){
+        string name;
+        cin >> name;
+
+        cout << "请输入姓名： " << endl;
+        cin >> name;
+        abs->personArray[ret].m_Name = name;
+
+        cout << "请输入性别： " <<endl;
+        cout << "1 --- 男" <<endl;
+        cout << "2 --- 女" <<endl;
+        int sex = 0;
+        while(true){
+            cin >> sex;
+            if(sex == 1 || sex == 2){
+                abs->personArray[ret].m_Sex = sex;
+                break;
+            }
+            else{
+                cout << "输入有误，请重新输入" <<endl;
+            }
+        }
+
+        cout << "请输入年龄：" << endl;
+        int age = 0;
+        cin >> age ;
+        abs->personArray[ret].m_Age = age;
+
+        cout << "请输入电话" << endl;
+        string phone;
+        cin >> phone;
+        abs->personArray[ret].m_Phone = phone;
+
+        cout << "请输入住址" << endl;
+        string address;
+        cin >> address;
+        abs->personArray[ret].m_Addr = address;
+
+        cout << "添加成功" << endl;
+    } else{
+        cout << "查无此人！" << endl;
+    }
+    clearscreen();
+}
+
+void cleanPerson(Addressbooks * abs){
+    abs->m_Size = 0;
+    cout << "通讯录已清空" << endl;
+
+    clearscreen();
 }
 
 int main(){
@@ -160,24 +228,16 @@ int main(){
                 showPerson(&abs);
                 break;
             case 3://删除联系人
-//                {
-//                    cout << "请输入删除联系人姓名：" << endl;
-//                    string name;
-//                    cin >> name;
-//
-//                    if (isExist(&abs, name) == -1) {
-//                        cout << "查无此人" << endl;
-//                    }else{
-//                        cout << "找到此人" << endl;
-//                    }
-//                }
                 deletePerson(&abs);
                 break;
-            case 4:
+            case 4://查找联系人
+                findPerson(&abs);
                 break;
-            case 5:
+            case 5://修改联系人
+                modifyPerson(&abs);
                 break;
-            case 6:
+            case 6://清空联系人
+                cleanPerson(&abs);
                 break;
             case 0:
                 cout << "欢迎下次使用" << endl;
