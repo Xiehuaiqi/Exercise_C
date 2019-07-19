@@ -3,7 +3,7 @@
 //
 #include "circle.h"
 #include "point.h"
-
+//cehngyuanhanshu
 void Circle::setR(int r){
     m_R = r;
 }
@@ -13,6 +13,6 @@ int Circle::getR(){
 void Circle::setCenter(Point center){
     m_Center = center;
 }
-Point getCenter(){
+Point Circle::getCenter(){
     return m_Center;
 }

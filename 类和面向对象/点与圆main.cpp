@@ -38,7 +38,7 @@ int main(){
     //创建点
     Point p;
     p.setX(10);
-    p.setY(11);
+    p.setY(10);
     //判断关系
     isInCircle(c,p);
 
