@@ -3,4 +3,4 @@ project(exercise)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(exercise 类和面向对象/point.h 类和面向对象/point.cpp 类和面向对象/circle.h 类和面向对象/circle.cpp 类和面向对象/点与圆main.cpp)
+add_executable(基于多态的职工管理系统/workManager.h 基于多态的职工管理系统/workManager.cpp)
