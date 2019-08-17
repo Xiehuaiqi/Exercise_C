@@ -8,6 +8,10 @@ WorkerManager::WorkerManager() {
 
 }
 
+void WorkerManager::Show_Menu() {
+
+}
+
 WorkerManager::~WorkerManager() {
 
 }
